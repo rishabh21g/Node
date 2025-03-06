@@ -9,47 +9,6 @@ console.log("Hostname: " + os.hostname()); //LAPTOP-9MBL1O4G
 console.log("UserInfo: " + os.userInfo());
 console.log("Machine: " + os.machine());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // CPUS: [
 //     {
 //       model: 'AMD Ryzen 5 5600H with Radeon Graphics         ',

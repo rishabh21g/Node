@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/rishabh21g/Node/issues"
   },
-  "homepage": "https://github.com/rishabh21g/Node#readme"
+  "homepage": "https://github.com/rishabh21g/Node#readme",
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
 }

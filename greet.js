@@ -7,3 +7,7 @@ function greet(hours){
     }
 const greetings = greet(hours)
 console.log(`${greetings} ${name}`)
+
+//COMMON JS
+// module.exports = greetings;
+export default greetings;

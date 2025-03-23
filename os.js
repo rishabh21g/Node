@@ -8,7 +8,10 @@ console.log("Uptime: " + os.uptime() / (60 * 60));
 console.log("Hostname: " + os.hostname()); //LAPTOP-9MBL1O4G
 console.log("UserInfo: " + os.userInfo());
 console.log("Machine: " + os.machine());
-
+console.log("Machine: " + os.arch())
+console.log("Machine: " + os.uptime())
+console.log("Machine: " + os.networkInterfaces())
+console.log("Machine: " + os.devNull)
 // CPUS: [
 //     {
 //       model: 'AMD Ryzen 5 5600H with Radeon Graphics         ',

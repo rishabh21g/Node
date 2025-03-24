@@ -51,4 +51,51 @@ export async function createFilePromise(pathname) {
   }
 }
 
-createFilePromise("./hello.txt");
+// createFilePromise("./hello.txt");
+
+// create file with content
+export async function createFilewithContent(pathname, content = "") {
+  await fs.writeFile(pathname, content);
+}
+
+// write file with content
+export async function writeFilewithContent(pathname, content = "") {
+  await fs.appendFile(pathname, content);
+}
+// create folder
+export async function createFolder(folderName) {
+  await fs.mkdir(folderName, { recursive: true });
+}
+
+// readfile
+export async function readFile(pathname) {
+  const data = await fs.readFile(pathname, "utf-8");
+  console.log(data);
+}
+
+// createFileAsync('.hello.txt')
+// readFile('./hello.txt')
+
+export async function delFile(pathname) {
+  await fs.rm(pathname);
+}
+
+// delFile('./hello.txt')
+
+export async function delFolder(folderPath) {
+  await fs.rmdir(folderPath);
+}
+
+// delFile('./hello.js')
+// createFilewithContent('./hello.js' , "hello javascript")
+
+export async function getFileinfo(pathname) {
+  const FileInfo = await fs.stat(pathname);
+  // console.log("FILE INFO:", FileInfo);
+  return {
+    size: `${(FileInfo.size / 1024).toFixed(2)} KB`,
+    createdOn: `${FileInfo.atime.toLocaleDateString()}`,
+  };
+}
+
+getFileinfo("./index.js").then((stats) => console.log(stats));

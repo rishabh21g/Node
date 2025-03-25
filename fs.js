@@ -1,5 +1,8 @@
 // import * as fs from "node:fs";
+import { error } from "node:console";
 import * as fs from "node:fs/promises";
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 //^ Synchronous way of writing code ^
 export function createFile(pathname) {
@@ -41,9 +44,9 @@ export function createFileAsync(pathname) {
 export async function createFilePromise(pathname) {
   try {
     await fs.writeFile(pathname, "Hello Node js");
-    console.log("File has been created successfully!");
-    await fs.appendFile(pathname, "\nAppended successfilly");
-    console.log("Appended successfully!");
+    // console.log("File has been created successfully!");
+    // await fs.appendFile(pathname, "\nAppended successfilly");
+    // console.log("Appended successfully!");
   } catch (err) {
     console.error("Something went wrong", err);
   } finally {
@@ -60,11 +63,19 @@ export async function createFilewithContent(pathname, content = "") {
 
 // write file with content
 export async function writeFilewithContent(pathname, content = "") {
-  await fs.appendFile(pathname, content);
+  try {
+    await fs.appendFile(pathname, content);
+  } catch (err) {
+    console.error(err.message);
+  }
 }
 // create folder
 export async function createFolder(folderName) {
-  await fs.mkdir(folderName, { recursive: true });
+  try {
+    await fs.mkdir(folderName, { recursive: true });
+  } catch (err) {
+    console.log("Error: ", err.message);
+  }
 }
 
 // readfile
@@ -77,13 +88,21 @@ export async function readFile(pathname) {
 // readFile('./hello.txt')
 
 export async function delFile(pathname) {
-  await fs.rm(pathname);
+  try {
+    await fs.rm(pathname);
+  } catch (err) {
+    console.log(err.message);
+  }
 }
 
 // delFile('./hello.txt')
 
 export async function delFolder(folderPath) {
-  await fs.rmdir(folderPath);
+  try {
+    await fs.rmdir(folderPath);
+  } catch (err) {
+    console.log(err.message);
+  }
 }
 
 // delFile('./hello.js')
@@ -98,4 +117,19 @@ export async function getFileinfo(pathname) {
   };
 }
 
-getFileinfo("./index.js").then((stats) => console.log(stats));
+// getFileinfo("./index.js").then((stats) => console.log(stats));
+export async function listItem(pathname = "./") {
+  try {
+    const items = await fs.readdir(pathname, { withFileTypes: true });
+    return items.map((item) => ({
+      Name: item.name,
+      Type: item.isDirectory() ? "folder" : "file",
+    }));
+  } catch (err) {
+    console.error(err.message);
+    return []; 
+  }
+}
+
+// const list = await listItem("./");
+// console.log(list);

@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug":"nodemon --inspect fileManager.js",
+    "dev":"nodemon fileManager.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,8 @@
   "homepage": "https://github.com/rishabh21g/Node#readme",
   "dependencies": {
     "chalk": "^5.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }

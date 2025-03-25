@@ -4,6 +4,10 @@
   "description": "Learning Backend",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "fmanager": "./fileManager.js"
+
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug":"nodemon --inspect fileManager.js",

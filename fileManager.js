@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as readline from "node:readline/promises";
 import chalk from "chalk";
 import {
@@ -22,13 +23,13 @@ async function menu() {
     )
   );
   const options = [
-    "CREATE FOLDER",
-    "CREATE FILE",
-    "WRITE TO FILE",
-    "DELETE FILE",
-    "DELETE FOLDER",
-    "LIST OF ITEMS",
-    "EXIT",
+    "CREATE FOLDER 🖿",
+    "CREATE FILE 🗒️",
+    "WRITE TO FILE 📝",
+    "DELETE FILE 🗑️",
+    "DELETE FOLDER 🗃️",
+    "LIST OF ITEMS 🗒️",
+    "EXIT 🚪",
   ];
 
   options.forEach((opt, i) => {
